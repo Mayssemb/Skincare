@@ -1,0 +1,27 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: #111; /* Dark background */
+  color: white; /* Text color */
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Add some spacing for sections */
+section {
+  padding: 50px 0;
+}
