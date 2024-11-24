@@ -1,0 +1,42 @@
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f8f8f8;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff6347; /* Coral button */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #e04e3b; /* Darker coral on hover */
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
