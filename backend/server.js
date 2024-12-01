@@ -1,29 +1,51 @@
 const express = require('express');
+const dotenv = require("dotenv");
+const cors = require("cors");
 const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const productRoutes = require('./routes/skincareRoute');
+const app = express();
+const userRoute = require('./routes/userRoute'); // Import the user route
 
-// Load environment variables
 dotenv.config();
 
-// Initialize app
-const app = express();
+// Your MongoDB connection string 
+const mongoURI = process.env.MONGO_URI;
 
-// Middleware
+// Middleware setup
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); 
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error(err));
+// Define routes
+app.use("/api/auth", userRoute);
 
-// Use product routes
-app.use('/api/products', productRoutes);
+// Connect to MongoDB using Mongoose
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('MongoDB connected successfully!');
+  })
+  .catch((error) => {
+    console.error('MongoDB connection error:', error);
+  });
 
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Optionally, monitor connection status
+mongoose.connection.on('connected', () => {
+  console.log('MongoDB connected via Mongoose.');
+});
+
+mongoose.connection.on('error', (error) => {
+  console.error('MongoDB connection error:', error);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.log('MongoDB disconnected.');
+});
+
+// Root route
+app.get('/', (req, res) => {
+  res.send('Hello, MongoDB!');
+});
+
+// Start the server
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
