@@ -5,7 +5,7 @@ import "./Features.css";
 function Features({ products, addToCart }) {
   return (
     <section className="features-section">
-      <h2>Our Products</h2>
+      <h2>Our Beautiful Collection</h2>
       <div className="product-grid">
         {products.map((product) => (
           <ProductCard

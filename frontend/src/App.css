@@ -1,20 +1,5 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-  animation: App-logo-spin infinite 20s linear;
-}
-
-.App-header {
-  background-color: #f0f4f8;
-  text-align: center;
-  padding: 40px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-banner {
+  background-image: url("./assets/images/hero-banner-1.jpg"); /* Example usage */
+  background-size: cover;
+  background-position: center;
 }

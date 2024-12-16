@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
 function Customers() {
-const url = "http://localhost:5000/api/users";
+const url = "http://localhost:8000/api/users";
 const [users, setUsers] = useState([]);
 useEffect(() => {
 axios
@@ -53,7 +53,7 @@ cursor: "pointer",
 >
 {user.userName.toUpperCase()}
 <img
-src={`http://localhost:5000/${user.profileImagePath}`}
+src={`http://localhost:8088/${user.profileImagePath}`}
 style={{ maxWidth: "100px" }}
 alt="Description"
 />

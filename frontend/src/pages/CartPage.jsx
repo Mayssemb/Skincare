@@ -14,7 +14,11 @@ function CartPage({ cart, removeFromCart, changeQuantity, emptyCart }) {
       <h2>Your Cart</h2>
       <div className="cart-items">
         {cart.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <div className="empty-cart-message">
+            <p>Your cart is currently empty.</p>
+            <p>Start shopping and add items to your cart!</p>
+            <a href="/shop">Browse Products</a>
+          </div>
         ) : (
           cart.map((product) => (
             <div key={product.id} className="cart-item">

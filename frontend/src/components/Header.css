@@ -1,52 +1,76 @@
+/* Header Styles */
 .header {
-  background-color: #333;
-  padding: 10px 20px;
+  background-color: #f2e0e9; /* Soft pink background */
+  color: #333333; /* Dark gray text for contrast */
+  padding: 20px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
-.nav {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  color: #fff;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: black; /* Soft lavender pink */
   text-decoration: none;
+  letter-spacing: 2px;
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .nav-link {
-  color: #fff;
+  color: #5a5a5a;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #f29c11;
-}
-
-/* Home button styling */
-.home-link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.home-link:hover {
-  color: #f29c11;
+  color: #f7a7c1; /* Blush pink on hover */
+  transform: translateY(-2px); /* Slight hover movement */
 }
 
 .cart-link {
-  color: #fff;
+  color: #d88ab1;
   text-decoration: none;
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .cart-link:hover {
-  color: #f29c11;
+  color: #f7a7c1; /* Blush pink on hover */
+  transform: translateY(-2px);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px; /* Adjusted gap between buttons */
+}
+
+.sign-button {
+  background-color: #f7a7c1;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sign-button:hover {
+  background-color: #f28d9f; /* Slightly darker pink on hover */
 }

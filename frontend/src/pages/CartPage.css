@@ -1,23 +1,35 @@
 .cart-page {
-  padding: 20px;
+  padding: 30px;
+  background-color: #f1f1f1;
+  font-family: "Arial", sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cart-items {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .cart-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: scale(1.05);
 }
 
 .cart-item-image {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -30,24 +42,24 @@
 .cart-item-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .cart-item-quantity {
   width: 50px;
-  padding: 5px;
-  font-size: 1rem;
+  padding: 10px;
+  font-size: 1.1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
 .remove-btn {
   background-color: #e74c3c;
-  border: none;
-  padding: 5px 10px;
+  padding: 8px 15px;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .remove-btn:hover {
@@ -55,23 +67,46 @@
 }
 
 .cart-summary {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.cart-summary h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .empty-cart-btn,
 .checkout-btn {
-  background-color: #f29c11;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
+  background-color: #4caf50; /* Green instead of orange */
+  padding: 12px 25px;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 25px;
+  font-size: 1rem;
   cursor: pointer;
-  margin: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .empty-cart-btn:hover,
 .checkout-btn:hover {
-  background-color: #f27e10;
+  background-color: #45a049;
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 30px;
+}
+
+.empty-cart-message a {
+  text-decoration: none;
+  color: #4caf50;
+  font-weight: bold;
 }

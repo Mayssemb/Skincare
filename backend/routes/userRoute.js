@@ -7,16 +7,26 @@ const {
     deleteUser,
     getOneUser,
     signIn,
-} = require("../Controllers/userController"); 
+} = require("../Controllers/userController");
+const isAuth = require("../middleware/isAuth");
+const isAutho = require('../middleware/isAutho');
 
-const isAuth = require("../middleware/isAuth"); 
-const isAutho = require('../middleware/isAutho'); 
+// Ensure that all imported handlers are functions
+if (typeof getUsers !== 'function' || 
+    typeof postUser !== 'function' || 
+    typeof putUser !== 'function' || 
+    typeof deleteUser !== 'function' || 
+    typeof getOneUser !== 'function' || 
+    typeof signIn !== 'function') {
+        throw new TypeError('One or more imported handlers are not functions');
+}
 
-userRoute.get("/users", getUsers); // Get all users
-userRoute.get("/users/:id", isAuth, isAutho(['user']), getOneUser); // Get one user by ID with auth checks
-userRoute.post("/users", postUser); // Create a new user
-userRoute.put("/users/:id", putUser); // Update a user by ID
-userRoute.delete("/users/:id", isAuth, isAutho(['admin']), deleteUser); // Delete a user by ID with auth checks
-userRoute.post("/signIn", signIn); // User sign-in
+// Define routes
+userRoute.get("/users", getUsers);
+userRoute.get("/users/:id", isAuth, isAutho(['user']), getOneUser);
+userRoute.post("/users", postUser);
+userRoute.put("/users/:id", putUser);
+userRoute.delete("/users/:id", isAuth, isAutho(['admin']), deleteUser);
+userRoute.post("/signIn", signIn);
 
-module.exports = userRoute; // Export the router
+module.exports = userRoute;

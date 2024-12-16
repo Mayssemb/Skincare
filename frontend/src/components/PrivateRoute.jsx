@@ -1,18 +1,19 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { UserRole} from "./UserRole";
+import { UserRole } from "./UserRole";
+
 function PrivateRoute({ children, allowedRoles }) {
-const role = UserRole();
-console.log(role)
-if (role) {
-return (
-<div>
-{allowedRoles.includes(role) ? children:<Navigate to="/" /> }
-</div>)
+  const role = UserRole();
+
+  if (!role) {
+    return <Navigate to="/signIn" />; // Redirect if no role or token
+  }
+
+  if (allowedRoles.includes(role)) {
+    return <>{children}</>; // Render children if allowed
+  }
+
+  return <Navigate to="/" />; // Redirect if role is not allowed
 }
-else {
-// No valid token or role, redirect to the login page
-return <Navigate to="/signIn" />; // Adjust the redirect route as needed
-}
-}
+
 export default PrivateRoute;
